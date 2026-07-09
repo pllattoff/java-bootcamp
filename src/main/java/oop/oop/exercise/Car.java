@@ -1,5 +1,7 @@
 package oop.oop.exercise;
 
+import java.util.Objects;
+
 public class Car {
 
     private String brand;
@@ -41,4 +43,29 @@ public class Car {
         this.speed = speed;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Car car = (Car) obj;
+        return brand.equals(car.brand)
+                && model.equals(car.model)
+                && color.equals(car.color)
+                && yearOfManufacture == car.yearOfManufacture;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, color, yearOfManufacture);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", yearOfManufacture=" + yearOfManufacture +
+                '}';
+    }
 }
