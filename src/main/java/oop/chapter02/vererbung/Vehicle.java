@@ -4,14 +4,18 @@ import java.util.Objects;
 
 public class Vehicle {
 
-    private String manufacturer;
-    private String model;
-    private int yearOfManufacture;
+    protected String manufacturer;
+    protected String model;
+    protected int yearOfManufacture;
 
     public Vehicle(String manufacturer, String model, int yearOfManufacture) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.yearOfManufacture = yearOfManufacture;
+    }
+
+    public void getInformation() {
+        System.out.println(this);
     }
 
     public String getManufacturer() {
