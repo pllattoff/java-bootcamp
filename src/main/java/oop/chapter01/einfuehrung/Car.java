@@ -1,4 +1,4 @@
-package oop.oop.exercise;
+package oop.chapter01.einfuehrung;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package oop.oop.exercise;
+package oop.chapter01.einfuehrung;
 
 public class Main {
     static void main() {
