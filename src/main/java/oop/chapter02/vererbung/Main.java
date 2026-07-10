@@ -6,9 +6,13 @@ public class Main {
 
         Vehicle vehicle = new Vehicle("Porsche", "911", 2010);
         Car car = new Car("Porsche", "911", 2010, 2);
+        Motorcycle motorcycle = new Motorcycle("Kawasaki", "Ninja", 2024, "Sportbike");
 
-        vehicle.getInformation();
-        car.getInformation();
+        vehicle.printInformation();
+        car.printInformation();
+        motorcycle.printInformation();
+
+        motorcycle.printType();
 
     }
 

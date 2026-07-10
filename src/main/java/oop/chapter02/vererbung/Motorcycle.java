@@ -2,47 +2,43 @@ package oop.chapter02.vererbung;
 
 import java.util.Objects;
 
-public class Car extends Vehicle{
+public class Motorcycle extends Vehicle {
 
-    private int numberOfDoors;
+    private String type;
 
-    public Car() {
-    }
-
-    public Car(String manufacturer, String model, int yearOfManufacture, int numberOfDoors) {
+    public Motorcycle(String manufacturer, String model, int yearOfManufacture, String type) {
         super(manufacturer, model, yearOfManufacture);
-        this.numberOfDoors = numberOfDoors;
+        this.type = type;
     }
 
-    @Override
-    public void printInformation() {
-        System.out.println(this);
+    public void printType() {
+        System.out.println(getType());
     }
 
-    public int getNumberOfDoors() {
-        return numberOfDoors;
+    public String getType() {
+        return type;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Car car = (Car) o;
-        return numberOfDoors == car.numberOfDoors;
+        Motorcycle that = (Motorcycle) o;
+        return Objects.equals(type, that.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), numberOfDoors);
+        return Objects.hash(super.hashCode(), type);
     }
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "Motorcycle{" +
                 "manufacturer='" + getManufacturer() + '\'' +
                 ", model='" + getModel() + '\'' +
                 ", yearOfManufacture=" + getYearOfManufacture() +
-                ", numberOfDoors=" + getNumberOfDoors() +
+                ", type='" + getType() + '\'' +
                 '}';
     }
 }

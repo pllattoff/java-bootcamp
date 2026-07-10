@@ -4,9 +4,12 @@ import java.util.Objects;
 
 public class Vehicle {
 
-    protected String manufacturer;
-    protected String model;
-    protected int yearOfManufacture;
+    private String manufacturer;
+    private String model;
+    private int yearOfManufacture;
+
+    public Vehicle() {
+    }
 
     public Vehicle(String manufacturer, String model, int yearOfManufacture) {
         this.manufacturer = manufacturer;
@@ -14,7 +17,7 @@ public class Vehicle {
         this.yearOfManufacture = yearOfManufacture;
     }
 
-    public void getInformation() {
+    public void printInformation() {
         System.out.println(this);
     }
 
@@ -45,9 +48,9 @@ public class Vehicle {
     @Override
     public String toString() {
         return "Vehicle{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", model='" + model + '\'' +
-                ", yearOfManufacture=" + yearOfManufacture +
+                "manufacturer='" + getManufacturer() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", yearOfManufacture=" + getYearOfManufacture() +
                 '}';
     }
 }
