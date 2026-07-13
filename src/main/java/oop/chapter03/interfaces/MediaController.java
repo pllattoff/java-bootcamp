@@ -1,4 +1,4 @@
-package oop.chapter3.interfaces;
+package oop.chapter03.interfaces;
 
 public class MediaController {
 
