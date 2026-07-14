@@ -1,7 +1,7 @@
 package oop.chapter04.javacollections.map.exercise;
 
 import oop.chapter04.javacollections.list.exercise.Course;
-import oop.chapter04.javacollections.list.exercise.School;
+import oop.chapter04.javacollections.map.exercise.School;
 import oop.chapter04.javacollections.list.exercise.Student;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public class Main {
         Student student4 = new Student(4, "Michael", "Brown");
         Student student5 = new Student(5, "Emily", "Wilson");
 
-        oop.chapter04.javacollections.list.exercise.School school = new School();
+        School school = new School();
         school.addStudent(student1);
         school.addStudent(student2);
         school.addStudent(student3);
