@@ -3,7 +3,6 @@ package oop.chapter04.javacollections.map.exercise;
 import oop.chapter04.javacollections.list.exercise.Course;
 import oop.chapter04.javacollections.list.exercise.Student;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
