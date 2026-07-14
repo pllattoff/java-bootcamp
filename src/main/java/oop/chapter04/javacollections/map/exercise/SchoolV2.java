@@ -17,7 +17,7 @@ public class SchoolV2 {
 
     public void printStudents() {
         for (Map.Entry<Integer, Student> entry : students.entrySet()) {
-            System.out.println("Key (ID): " + entry.getKey() + ", Value (Student): " + entry.getValue());
+            System.out.println("Key(ID): " + entry.getKey() + "; Value(Student): " + entry.getValue());
         }
     }
 
