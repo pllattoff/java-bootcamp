@@ -1,5 +1,7 @@
 package oop.chapter05.records;
 
+import java.util.List;
+
 public class Main {
     static void main() {
 
@@ -20,7 +22,9 @@ public class Main {
         animal1 = new Animal(animal1.id(), animal1.name(), animal1.species(), animal1.age(), ownerAnna);
         System.out.println("Аnimal 1 was modified: " + animal1);
 
-
+        // Bonus: Zoo
+        Zoo zoo = new Zoo(List.of(animal1, animal2, animal3, animal4));
+        System.out.println("zoo.getTotalFoodAmount(): " + zoo.getTotalFoodAmount());
 
     }
 }
