@@ -1,6 +1,7 @@
 package oop.chapter06.bigdecimal;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 public class BankService {
@@ -88,7 +89,25 @@ public class BankService {
             System.out.println("split: newAccount = " + newAccount);
         }
 
+        mainAccount.setBalance(BigDecimal.ZERO);
+        System.out.println("split: Resetting the balance on the base account: " + mainAccount);
+
         return newAccountNumbers;
+    }
+
+    public void applyInterest(BigDecimal rate) {
+
+        System.out.println("applyInterest: Application of interest based on the interest rate: " + rate);
+
+        for (Account account : accounts.values()) {
+            BigDecimal balance = account.getBalance();
+            BigDecimal interest = balance.multiply(rate.movePointLeft(2)).setScale(2, RoundingMode.HALF_UP);
+            account.setBalance(balance.subtract(interest));
+
+            System.out.println("applyInterest: balance = " + balance + "; interest = " + interest + "; " + account);
+        }
+
+
     }
 
     public void addAccountHolder(String accountNumber, Client accountHolder) {

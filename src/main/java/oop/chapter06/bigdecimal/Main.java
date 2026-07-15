@@ -37,5 +37,9 @@ public class Main {
         //Account splitting
         List<String> newAccountNumbers = bankService.split(accountNumber1);
 
+        //Zinsrechner
+        bankService.applyInterest(new BigDecimal("4.00"));
+
+
     }
 }
