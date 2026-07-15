@@ -7,6 +7,7 @@ public class Main {
 
         Species dogSpecies = new Species("Dog", 500);
         Species rabbitSpecies = new Species("Rabbit", 150);
+        Species catSpecies = new Species("Cat", 250);
 
         Owner ownerJohn = new Owner("John Smith", 35, "Main Street 12");
         Owner ownerAnna = new Owner("Anna Schmidt", 28, "Park Avenue 5");
@@ -26,5 +27,11 @@ public class Main {
         Zoo zoo = new Zoo(List.of(animal1, animal2, animal3, animal4));
         System.out.println("zoo.getTotalFoodAmount(): " + zoo.getTotalFoodAmount());
 
+        // Bonus: With-Methoden
+        animal1 = animal1.withId(9)
+                .withName("Tom")
+                .withSpecies(catSpecies);
+
+        System.out.println(animal1);
     }
 }
