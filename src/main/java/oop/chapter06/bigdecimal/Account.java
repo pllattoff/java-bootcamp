@@ -1,39 +1,65 @@
 package oop.chapter06.bigdecimal;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.math.BigInteger;
+import java.util.*;
 
 public class Account {
 
     private String accountNumber;
-    private BigDecimal balance;
+//    private BigDecimal balance;
+    private List<Transaction> transactions = new ArrayList<>();
     private Set<Client> accountHolders = new HashSet<>();
 
-    public Account(String accountNumber, BigDecimal balance, Client accountHolder) {
+    public Account(String accountNumber, Client accountHolder) {
         this.accountNumber = accountNumber;
-        this.balance = balance;
         this.accountHolders.add(accountHolder);
     }
 
-    public BigDecimal deposit(BigDecimal sum) {
-        balance = balance.add(sum);
-        System.out.println("deposit: " + sum + "; new balance = " + balance + "; " + this);
-        return balance;
+    public BigDecimal deposit(BigDecimal amount, String description) {
+        System.out.println("deposit: amount = " + amount + "; " + this);
+
+        Transaction transaction = createTransaction(amount, description);
+        return transaction.balance();
     }
 
-    public BigDecimal withdraw(BigDecimal sum) {
-        balance = balance.subtract(sum);
-        System.out.println("withdraw: " + sum + "; new balance = " + balance + "; " + this);
-        return balance;
+    public BigDecimal withdraw(BigDecimal amount, String description) {
+
+        amount = amount.negate();
+        System.out.println("withdraw: amount = " + amount + "; " + this);
+
+        Transaction transaction = createTransaction(amount, description);
+        return transaction.balance();
     }
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
+    public Transaction createTransaction(BigDecimal amount, String description) {
+
+        Date date = new Date();
+        BigInteger transactionId;
+        BigDecimal balance;
+
+        if (transactions.isEmpty()) {
+            transactionId = BigInteger.ONE;
+            balance = BigDecimal.ZERO;
+        } else {
+            transactionId = transactions.getLast().id().add(BigInteger.ONE);
+            balance = transactions.getLast().balance();
+        }
+        balance = balance.add(amount);
+
+        Transaction transaction = new Transaction(transactionId, amount, balance, description, date);
+        transactions.add(transaction);
+
+        System.out.println("createTransaction: Transaction created: transaction = " + transaction);
+
+        return transaction;
     }
 
     public BigDecimal getBalance() {
-        return balance;
+        if (transactions.isEmpty()) {
+            return BigDecimal.ZERO;
+        }
+        return transactions.getLast().balance();
     }
 
     public String getAccountNumber() {

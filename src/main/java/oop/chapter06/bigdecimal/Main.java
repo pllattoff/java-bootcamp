@@ -20,12 +20,12 @@ public class Main {
         Account account2 = bankService.getAccount(accountNumber2);
 
 
-        //Geld auf das Konto einzahlen
-        account1.deposit(new BigDecimal("500"));
-        account1.deposit(new BigDecimal("52.2"));
-
-        //Geld vom Konto abheben
-        account1.withdraw(new BigDecimal("22.3"));
+//        //Geld auf das Konto einzahlen
+//        account1.deposit(new BigDecimal("500"));
+//        account1.deposit(new BigDecimal("52.2"));
+//
+//        //Geld vom Konto abheben
+//        account1.withdraw(new BigDecimal("22.3"));
 
         //Überweisung
         bankService.transfer(new BigDecimal("200.00"), account1.getAccountNumber(), account2.getAccountNumber());
@@ -40,6 +40,8 @@ public class Main {
         //Zinsrechner
         bankService.applyInterest(new BigDecimal("4.00"));
 
+        //Transaktionen
+        bankService.createTransaction(accountNumber1, new BigDecimal("550.50"), "First transaction");
 
     }
 }
