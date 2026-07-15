@@ -35,8 +35,6 @@ public class BankService {
 
         Account toAccount = accounts.get(toAccountNumber);
         toAccount.deposit(sum, description);
-
-        System.out.println("transfer: fromAccount balance = " + fromAccount.getBalance() + "; toAccount balance = " + toAccount.getBalance());
     }
 
     public List<String> split(String accountNumber) {

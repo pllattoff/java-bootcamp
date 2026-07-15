@@ -20,28 +20,24 @@ public class Main {
         Account account2 = bankService.getAccount(accountNumber2);
 
 
-//        //Geld auf das Konto einzahlen
-//        account1.deposit(new BigDecimal("500"));
-//        account1.deposit(new BigDecimal("52.2"));
-//
-//        //Geld vom Konto abheben
-//        account1.withdraw(new BigDecimal("22.3"));
+        System.out.println("============  Geld auf das Konto einzahlen  ============");
+        account1.deposit(new BigDecimal("700"), "Top up account");
 
-        //Überweisung
+        System.out.println("===================  Überweisung  ======================");
         bankService.transfer(new BigDecimal("200.00"), account1.getAccountNumber(), account2.getAccountNumber());
 
-        //Adding another account owner:
+        System.out.println("============  Adding another account owner  ============");
         bankService.addAccountHolder(accountNumber1, client3);
         bankService.addAccountHolder(accountNumber1, client2);
 
-        //Account splitting
+        System.out.println("=================  Account splitting  ==================");
         List<String> newAccountNumbers = bankService.split(accountNumber1);
 
-        //Zinsrechner
+        System.out.println("====================  Zinsrechner  =====================");
         bankService.applyInterest(new BigDecimal("4.00"));
 
-        //Transaktionen
-        bankService.createTransaction(accountNumber1, new BigDecimal("550.50"), "First transaction");
+        System.out.println("===================  Transaktionen  ====================");
+        bankService.createTransaction(accountNumber2, new BigDecimal("550.50"), "Testing the transaction creation method");
 
     }
 }

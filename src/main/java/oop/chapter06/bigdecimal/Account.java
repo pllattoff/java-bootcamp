@@ -78,8 +78,8 @@ public class Account {
     public String toString() {
         return "Account{" +
                 "accountNumber='" + getAccountNumber() + '\'' +
-                ", balance=" + getBalance() +
-                ", accountHolders=" + accountHolders +
+                ", transactions=" + transactions +
+                ", accountHolders=" + getAccountHolders() +
                 '}';
     }
 }
