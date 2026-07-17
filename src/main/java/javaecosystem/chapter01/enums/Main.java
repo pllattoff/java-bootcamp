@@ -25,7 +25,12 @@ public class Main {
         System.out.println(personRepository.getPersonById("2"));
         System.out.println(personRepository.getPersonById("3"));
 
+        // counts the number of persons by gender
         System.out.println(personRepository.getQtyByGender());
+
+        // searches for and returns all persons by their favorite day of the week
+        System.out.println(personRepository.getPersonByFavoriteDay(DayOfWeek.FRIDAY));
+        System.out.println(personRepository.getPersonByFavoriteDay(DayOfWeek.SATURDAY));
 
     }
 }

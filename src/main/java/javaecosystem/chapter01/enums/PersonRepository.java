@@ -1,6 +1,8 @@
 package javaecosystem.chapter01.enums;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PersonRepository {
@@ -24,5 +26,16 @@ public class PersonRepository {
         }
 
         return qtyByGender;
+    }
+
+    public List<Person> getPersonByFavoriteDay(DayOfWeek dayOfWeek) {
+        List<Person> personList = new ArrayList<>();
+
+        for (Person person : persons.values()) {
+            if (person.favoriteDay().equals(dayOfWeek)) {
+                personList.add(person);
+            }
+        }
+        return personList;
     }
 }
