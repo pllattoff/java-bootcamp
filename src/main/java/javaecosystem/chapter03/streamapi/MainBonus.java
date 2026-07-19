@@ -8,7 +8,7 @@ import java.util.List;
 public class MainBonus {
     static void main() throws IOException {
 
-        List<Student> strings = Files.lines(Path.of("java streams - students.csv"))
+        List<Student> students = Files.lines(Path.of("java streams - students.csv"))
                 .peek(System.out::println)
                 .skip(1)
                 .distinct()
@@ -21,7 +21,9 @@ public class MainBonus {
                         Integer.parseInt(lineAsArray[3])))
                 .toList();
 
-        System.out.println(strings);
+        System.out.println("---");
+
+        students.forEach(System.out::println);
 
 
     }
