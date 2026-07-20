@@ -1,10 +1,14 @@
 package javaecosystem.chapter05.lombok;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.With;
 
 import java.util.List;
 
+@Builder
+@With
 @Data
 @AllArgsConstructor
 public class Course {
