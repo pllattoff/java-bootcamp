@@ -10,19 +10,20 @@ public class Main {
         Teacher teacher3 = teacher2.withId(3).withName("Teacher Name 3");
 
         Student student1 = Student.builder()
-                .id(1)
+                .id(2)
                 .name("Max")
-                .grade(8)
+                .grade(2)
                 .build();
         Student student2 = Student.builder()
-                .id(2)
+                .id(3)
                 .name("John")
                 .address("address 2")
-                .grade(8)
+                .grade(1)
                 .build();
         Student student3 = Student.builder()
-                .id(3)
+                .id(1)
                 .name("Anna")
+                .grade(1)
                 .build();
 
         Course course1 = new Course(1, "Course Name 1", teacher1, List.of(student1, student2, student3));
@@ -42,6 +43,17 @@ public class Main {
 
         System.out.println("Teacher of the Course 3:");
         System.out.println(course3.getTeacher());
+
+
+        University university1 = University.builder()
+                .id(1)
+                .name("University 1")
+                .courses(List.of(course1, course2, course3))
+                .build();
+
+        UniversityService universityService = new UniversityService();
+        System.out.println("The average grade of the entire university 1:");
+        System.out.println(universityService.calculateAvgGrade(university1));
 
     }
 }
