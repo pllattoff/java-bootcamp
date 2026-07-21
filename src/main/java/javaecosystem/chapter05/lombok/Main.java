@@ -55,5 +55,9 @@ public class Main {
         System.out.println("The average grade of the entire university 1:");
         System.out.println(universityService.calculateAvgGrade(university1));
 
+        System.out.println("All students of a university with a minimum grade of 2:");
+        universityService.getStudentsWithMinGrade(university1)
+                .forEach(System.out::println);
+
     }
 }

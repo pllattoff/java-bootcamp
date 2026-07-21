@@ -1,5 +1,7 @@
 package javaecosystem.chapter05.lombok;
 
+import java.util.List;
+
 public class UniversityService {
 
     public Double calculateAvgGrade(University university) {
@@ -11,6 +13,14 @@ public class UniversityService {
                 .orElse(0.0);
 
         return Math.round(average * 100.0) / 100.0;
+    }
+
+    public List<Student> getStudentsWithMinGrade(University university) {
+
+        return university.courses().stream()
+                .flatMap(course -> course.getStudents().stream())
+                .filter(student -> student.getGrade() <= 2)
+                .toList();
     }
 
 }
