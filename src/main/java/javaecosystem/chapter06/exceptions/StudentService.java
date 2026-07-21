@@ -1,6 +1,7 @@
 package javaecosystem.chapter06.exceptions;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 public class StudentService {
@@ -14,5 +15,10 @@ public class StudentService {
 
     public List<Student> getAllStudents(){
         return repo.getAllStudents();
+    }
+
+    public Student findById(String studentId) {
+        return repo.findStudentById(studentId)
+                .orElseThrow(() -> new NoSuchElementException("Student with ID = " + studentId + " not found!"));
     }
 }

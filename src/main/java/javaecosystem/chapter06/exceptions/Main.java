@@ -1,5 +1,7 @@
 package javaecosystem.chapter06.exceptions;
 
+import java.util.NoSuchElementException;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -13,5 +15,7 @@ public class Main {
         Student savedStudent = studentService.addNewStudent(newStudent);
 
         System.out.println("Student saved: " + savedStudent);
+
+//        studentService.findById("-1");
     }
 }
