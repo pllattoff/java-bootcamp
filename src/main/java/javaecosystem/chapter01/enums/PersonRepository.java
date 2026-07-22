@@ -1,9 +1,6 @@
 package javaecosystem.chapter01.enums;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PersonRepository {
 
@@ -13,8 +10,8 @@ public class PersonRepository {
         this.persons = persons;
     }
 
-    public Person getPersonById(String personId) {
-        return persons.get(personId);
+    public Optional<Person> getPersonById(String personId) {
+        return Optional.ofNullable(persons.get(personId));
     }
 
     public  Map<Gender, Integer> getQtyByGender() {
@@ -37,5 +34,11 @@ public class PersonRepository {
             }
         }
         return personList;
+    }
+
+    public Optional<Person> getPersonByName(String name) {
+        return persons.values().stream()
+                .filter(person -> person.name().equals(name))
+                .findFirst();
     }
 }

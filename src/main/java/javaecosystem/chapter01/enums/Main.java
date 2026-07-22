@@ -2,6 +2,7 @@ package javaecosystem.chapter01.enums;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class Main {
     static void main() {
@@ -21,9 +22,20 @@ public class Main {
 
         PersonRepository personRepository = new PersonRepository(persons);
 
-        System.out.println(personRepository.getPersonById("1"));
-        System.out.println(personRepository.getPersonById("2"));
-        System.out.println(personRepository.getPersonById("3"));
+        //Optionals
+        Optional<Person> personOptional1 = personRepository.getPersonById("1");
+        Optional<Person> personOptional2 = personRepository.getPersonById("1");
+        Optional<Person> personOptional3 = personRepository.getPersonById("1");
+
+        System.out.println(personOptional1);
+        System.out.println(personOptional2);
+        System.out.println(personOptional3);
+
+        personOptional1.ifPresent(person -> System.out.println(person.name() + " " + person.favoriteDay()));
+
+        //search and return a person by their name
+        personRepository.getPersonByName("Anna").ifPresent(System.out::println);
+
 
         // counts the number of persons by gender
         System.out.println(personRepository.getQtyByGender());
